@@ -2,6 +2,8 @@ module Avatarable
   extend ActiveSupport::Concern
 
   included do
+    # Added to avoid running into a error when precompiling which 
+    # forces Azure to be defined
     unless ENV["SECRET_KEY_BASE_DUMMY"].present?
       has_one_attached :avatar
 
