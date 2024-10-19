@@ -20,7 +20,14 @@ default: &default
   host: localhost
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  port: 5432
+  port: <%= ENV.fetch("DATABASE_PORT") do
+          begin
+            docker_port = `docker compose port postgres 5432 2> /dev/null`.split(":").last
+            Integer(docker_port.strip)
+          rescue
+            5432
+          end
+        end %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -91,9 +98,9 @@ test:
 #
 production:
   <<: *default
-  host: <%= ENV["DB_HOST"] %>
+  host: <%= ENV["TAIL_DB_HOST"] %>
   pool: 5
-  username: <%= ENV["DB_USER"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
+  username: <%= ENV["TAIL_DB_USER"] %>
+  password: <%= ENV["TAIL_DB_PASSWORD"] %>
   database: postgres
   timeout: 5000

@@ -9,8 +9,8 @@ gem "rails", "~> 7.2.1"
 # Used to deploy to production
 gem "kamal"
 
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+# Used for handling asset delivery
+gem "propshaft"
 
 # figaro to handle ENV variables for postgresql
 gem "figaro"
@@ -60,7 +60,6 @@ gem "devise"
 gem "devise_invitable", "~> 2.0.9"
 
 # Use Sass to process CSS
-gem "dartsass-sprockets"
 gem "dartsass-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
