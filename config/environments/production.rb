@@ -38,7 +38,9 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
   # Store uploaded files on Azure.
-  config.active_storage.service = :azure
+  # [edwin] - Will need to figure out the azure storage account and key later
+  # config.active_storage.service = :azure
+  config.active_storage.service = :local
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
