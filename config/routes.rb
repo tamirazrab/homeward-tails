@@ -75,9 +75,13 @@ Rails.application.routes.draw do
     resources :states, only: [:index]
   end
 
-  match "/404", to: "errors#not_found", via: :all
-  match "/422", to: "errors#unprocessable_content", via: :all
-  match "/500", to: "errors#internal_server_error", via: :all
+  #
+  # [edwin] - routes cause failures if you cannot find an asset because it matches
+  # for all 404s, 422s, and 500s
+  #
+  # match "/404", to: "errors#not_found", via: :all
+  # match "/422", to: "errors#unprocessable_content", via: :all
+  # match "/500", to: "errors#internal_server_error", via: :all
 
   root "root#index"
   get "/about_us", to: "static_pages#about_us"
