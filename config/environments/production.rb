@@ -39,6 +39,7 @@ Rails.application.configure do
 
   # Store uploaded files on Azure.
   config.active_storage.service = :azure
+  # config.active_storage.service = :local
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
