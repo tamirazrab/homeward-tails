@@ -4,14 +4,12 @@ module Avatarable
   included do
     # Added to avoid running into a error when precompiling which 
     # forces Azure to be defined
-    unless ENV["SECRET_KEY_BASE_DUMMY"].present?
-      has_one_attached :avatar
+    has_one_attached :avatar
 
-      # TODO:  move these validation strings to a locale file
-      validates :avatar, content_type: {in: ["image/png", "image/jpeg"],
-        message: "must be PNG or JPEG"},
-        size: {between: 10.kilobyte..1.megabytes,
-          message: "size must be between 10kb and 1Mb"}
-    end
+    # TODO:  move these validation strings to a locale file
+    validates :avatar, content_type: {in: ["image/png", "image/jpeg"],
+      message: "must be PNG or JPEG"},
+      size: {between: 10.kilobyte..1.megabytes,
+        message: "size must be between 10kb and 1Mb"}
   end
 end
