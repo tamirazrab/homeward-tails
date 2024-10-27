@@ -98,9 +98,9 @@ test:
 #
 production:
   <<: *default
-  host: <%= ENV["TAIL_DB_HOST"] %>
+  host: <%= ENV["DB_HOST"] %>
   pool: 5
-  username: <%= ENV["TAIL_DB_USER"] %>
-  password: <%= ENV["TAIL_DB_PASSWORD"] %>
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
   database: postgres
   timeout: 5000
