@@ -60,7 +60,7 @@ env:
 #
 ssh:
   user: deploy
-  keys: [ "~/.ssh/homeward_tails_rsa.pem" ]
+  keys: [ "~/.ssh/homeward_test_rsa.pem" ]
 
 # Use a persistent storage volume.
 #
