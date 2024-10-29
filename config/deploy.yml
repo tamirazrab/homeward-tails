@@ -7,7 +7,7 @@ image: edwinthinks/homeward-tails
 # Deploy to these servers.
 servers:
   web:
-    - tails.edwinmak.com
+    - homeward.edwinmak.com
 
   # job:
   #   hosts:
@@ -19,7 +19,7 @@ servers:
 # in Cloudflare's SSL/TLS setting to "Full" to enable end-to-end encryption. 
 proxy: 
   ssl: true
-  host: tails.edwinmak.com
+  host: homeward.edwinmak.com
   app_port: 3000
 
 # Credentials for your image host.
@@ -39,7 +39,7 @@ builder:
   # [edwin] - Using a remote builder can be faster especially if you are on a different architecture.
   # For example, I use a Macbook (ARM64) but we want to deploy to Ubuntu (AMD64). This speeds it up
   # but assumes you already setup SSH access to the server
-  remote: ssh://deploy@homeward-tails.eastus.cloudapp.azure.com
+  # remote: ssh://deploy@homeward-tails.eastus.cloudapp.azure.com
 
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 #
