@@ -59,7 +59,7 @@ module Organizations
         csv << @data
         csv << @data
       end
-      assert_difference "FormSubmission.count" do
+      assert_no_difference "FormSubmission.count" do
         Organizations::Importers::GoogleCsvImportService.new(@file).call
       end
     end
