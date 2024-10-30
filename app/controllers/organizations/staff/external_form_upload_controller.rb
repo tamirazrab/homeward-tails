@@ -10,9 +10,8 @@ module Organizations
       def create
         authorize! :external_form_upload, context: {organization: Current.organization}
 
-        file = params[:files]
         # Only processes single file upload
-        import = Organizations::Importers::GoogleCsvImportService.new(file).call
+        import = Organizations::Importers::GoogleCsvImportService.new(params[:files]).call
 
         if import.success?
           # do something
