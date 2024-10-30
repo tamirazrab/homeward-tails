@@ -43,7 +43,7 @@ module Organizations
         rescue => e
           @errors << [row_num, e]
         end
-        Status.new(@errors.empty? ? true : false, @count, @no_match, @errors)
+        Status.new(@errors.empty?, @count, @no_match, @errors)
       end
 
       private
